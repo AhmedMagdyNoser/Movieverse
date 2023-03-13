@@ -7,7 +7,7 @@ import Header from './components/Header';
 import List from './components/List';
 import Pagination from './components/Pagination';
 import MovieDetails from './components/MovieDetails';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 let res;
 
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
       <Header search={search} getPage={getPage} />
         <Routes>
           <Route index element={
@@ -52,7 +52,7 @@ function App() {
           } />
           <Route path='movie/:id' element={<MovieDetails />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 
