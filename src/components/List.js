@@ -4,7 +4,7 @@ import Card from "./Card";
 export default function List({ data }) {
 
   return (
-    <div className="container py-4 ">
+    <div className="container py-4">
 
       {
         data.status === 'loading' ?

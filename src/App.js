@@ -1,10 +1,10 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from './components/Header';
 import List from './components/List';
 import Pagination from './components/Pagination';
 import MovieDetails from './components/MovieDetails';
-import axios from 'axios';
 
 export default function App() {
 
