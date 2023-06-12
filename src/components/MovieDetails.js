@@ -15,9 +15,8 @@ export default function MovieDetails() {
     // console.log(res.data);
   }
 
-  useEffect(() => {
-    getMovieDetails();
-  }, []);
+  // eslint-disable-next-line
+  useEffect(() => {  getMovieDetails(); }, []);
 
   return movieDetails ?
     <div className="container">
