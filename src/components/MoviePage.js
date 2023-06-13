@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { SimpleSpinner } from "./Utils/Loaders";
 import axios from 'axios';
 
-export default function MovieDetails() {
+export default function MoviePage() {
 
   const params = useParams(); // it's the parameters in the current url '/movie/:id' the only param is the id
 

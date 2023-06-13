@@ -10,7 +10,7 @@ export default function Card({ film }) {
   return (
     <FadeIn time='1s'>
       <Link to={`/movie/${film.id}`}>
-        <div className='rounded overflow-hidden' style={{ position: 'relative', aspectRatio: '3 / 4' }}>
+        <div className='rounded overflow-hidden' style={{ position: 'relative', aspectRatio: '2 / 3' }}>
           <div id={film.id} className="skeleton h-100">
             <img
               src={'https://image.tmdb.org/t/p/w500' + film.poster_path}
