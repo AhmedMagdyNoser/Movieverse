@@ -1,6 +1,4 @@
-let totalPages = 500;
-
-export default function Pagination({ getPage, currentPage, setCurrentPage }) {
+export default function Pagination({ getPage, currentPage, totalPages }) {
 
   function nextPage() {
     if (currentPage < totalPages)
@@ -24,7 +22,7 @@ export default function Pagination({ getPage, currentPage, setCurrentPage }) {
     <ul className="pagination justify-content-center p-0">
 
       {/* The previous page button option */}
-      <li className={"page-item" + (currentPage === 1 ? " disabled" : null)}>
+      <li className={"page-item" + (currentPage === 1 && " disabled")}>
         <button onClick={previousPage} className="page-link rounded-0 shadow-none">Previous</button>
       </li>
 
@@ -39,7 +37,6 @@ export default function Pagination({ getPage, currentPage, setCurrentPage }) {
           </li>
         </>
         : null}
-
 
       {/* The previous page number option */}
       {currentPage > 1 ?

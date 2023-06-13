@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import List from './components/List';
-import Pagination from './components/Pagination';
+import Pagination from './components/Utils/Pagination';
 import MovieDetails from './components/MovieDetails';
 
 export default function App() {
@@ -66,7 +66,7 @@ export default function App() {
         <Route index element={
           <div>
             <List data={data} />
-            <Pagination getPage={getPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            <Pagination getPage={getPage} currentPage={currentPage} totalPages={500} />
           </div>
         } />
         <Route path='movie/:id' element={<MovieDetails />} />
