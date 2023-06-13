@@ -17,24 +17,12 @@ export default function App() {
 
   const apiKey = '52ef927bbeb21980cd91386a29403c78';
 
-  async function getAllMovies() {
+  async function getMovies(page) {
     setData({ ...data, status: 'loading' });
-    await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar&page=1`)
+    await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar&page=${page}`)
       .then(res => {
         setData({ movies: res.data.results, status: '', errors: [] });
-      })
-      .catch(err => {
-        console.log(err);
-        setData({ movies: [], status: '', errors: err.response.data.errors });
-      })
-  }
-
-  async function getPage(x) {
-    setData({ ...data, status: 'loading' });
-    await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar&page=${x}`)
-      .then(res => {
-        setData({ movies: res.data.results, status: '', errors: [] });
-        setCurrentPage(x);
+        setCurrentPage(page);
       })
       .catch(err => {
         console.log(err);
@@ -54,19 +42,20 @@ export default function App() {
         console.log(err);
         setData({ movies: [], status: '', errors: err.response.data.errors });
       })
+    event.target.reset();
   }
 
   // eslint-disable-next-line
-  useEffect(() => { getAllMovies() }, []);
+  useEffect(() => { getMovies(1) }, []);
 
   return (
     <HashRouter>
-      <Header search={search} getPage={getPage} />
+      <Header search={search} getPage={getMovies} />
       <Routes>
         <Route index element={
           <div>
             <List data={data} />
-            <Pagination getPage={getPage} currentPage={currentPage} totalPages={500} />
+            <Pagination getPage={getMovies} currentPage={currentPage} totalPages={500} />
           </div>
         } />
         <Route path='movie/:id' element={<MovieDetails />} />

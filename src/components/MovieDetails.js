@@ -13,9 +13,11 @@ export default function MovieDetails() {
     errors: [],
   });
 
+  const apiKey = '52ef927bbeb21980cd91386a29403c78';
+
   async function getMovieDetails() {
     setMovieDetails({ ...movieDetails, status: 'loading' });
-    await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=52ef927bbeb21980cd91386a29403c78&language=ar`)
+    await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${apiKey}&language=ar`)
       .then(res => {
         setMovieDetails({ movie: res.data, status: '', errors: [] });
       })
