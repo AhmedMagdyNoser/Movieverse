@@ -1,8 +1,11 @@
 import Card from "./Card";
 import Pagination from "./Utils/Pagination";
 import { SimpleSpinner } from "./Utils/Loaders";
+import { useParams } from "react-router-dom";
 
-export default function List({ state, getMovies, currentPage }) {
+export default function List({ state, getMovies, search, currentPage }) {
+
+  let params = useParams();
 
   function checkStatus() {
     if (state.status === 'loading')
@@ -12,6 +15,10 @@ export default function List({ state, getMovies, currentPage }) {
     else return results;
   }
 
+  function getSearchPage(page) {
+    search(params.query, page)
+  }
+
   let results = <div>
     {state.data.results ?
       <>
@@ -19,9 +26,9 @@ export default function List({ state, getMovies, currentPage }) {
           {state.data.results.map(film => <Card key={film.id} film={film} />)}
         </div>
         <Pagination
-          getPage={getMovies}
+          getPage={getMovies ? getMovies : getSearchPage}
           currentPage={currentPage}
-          totalPages={state.data.total_pages <= 500 ? state.data.total_page : 500}
+          totalPages={state.data.total_pages <= 500 ? state.data.total_pages : 500}
         />
       </>
       : <h2 className="text-center">لا يوجد أفلام</h2>}

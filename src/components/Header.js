@@ -16,9 +16,9 @@ export default function Header({ search, getMovies }) {
           <i className="fa-solid fa-bars text-white"></i>
         </button>
         <div className="collapse navbar-collapse" style={{ flexGrow: '0' }} id="navbarSupportedContent">
-          <form className="d-flex gap-2 mt-2 mt-lg-0" onSubmit={(e) => search(e, inputValue.current.value)}>
+          <form className="d-flex gap-2 mt-2 mt-lg-0" onSubmit={(e) => search(inputValue.current.value, 1, e)}>
             <input ref={inputValue} className="form-control shadow-none rounded border-0" placeholder="ابحث.." />
-            <button className="btn btn-warning" onClick={() => navigate('/')} type="submit">بحث</button>
+            <button className="btn btn-warning" onClick={() => navigate(`/search/${inputValue.current.value}`)} type="submit">بحث</button>
           </form>
         </div>
       </div>

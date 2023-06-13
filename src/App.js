@@ -29,19 +29,20 @@ export default function App() {
       })
   }
 
-  async function search(event, query) {
+  async function search(query, page, event) {
+    event && event.preventDefault();
+    event && event.target.reset();
     // The maximum number of movies this function returns is 20 movies (1 page)
-    event.preventDefault();
     setState({ ...state, status: 'searching' });
-    await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=ar`)
+    await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=ar&page=${page}`)
       .then(res => {
         setState({ data: res.data, status: '', errors: [] });
+        setCurrentPage(page)
       })
       .catch(err => {
         console.log(err);
         setState({ data: [], status: '', errors: err.response.data.errors });
       })
-    event.target.reset();
   }
 
   // eslint-disable-next-line
@@ -49,9 +50,10 @@ export default function App() {
 
   return (
     <HashRouter>
-      {/* <Header search={search} getPage={getMovies} /> */}
+      <Header search={search} getMovies={getMovies} />
       <Routes>
         <Route index element={<List state={state} getMovies={getMovies} currentPage={currentPage} />} />
+        <Route path='search/:query' element={<List state={state} search={search} currentPage={currentPage} />} />
         <Route path='movie/:id' element={<MoviePage />} />
       </Routes>
     </HashRouter>
