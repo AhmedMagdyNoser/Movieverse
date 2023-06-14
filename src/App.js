@@ -17,11 +17,9 @@ export default function App() {
     errors: [],
   });
 
-  const apiKey = '52ef927bbeb21980cd91386a29403c78';
-
   async function getMovies(page) {
     setState({ ...state, status: 'loading' });
-    await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar&page=${page}`)
+    await axios.get(`${process.env.REACT_APP_API_URL}/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=ar&page=${page}`)
       .then(res => {
         setState({ data: res.data, status: '', errors: [] });
         setHomePageNum(page);
@@ -34,7 +32,7 @@ export default function App() {
 
   async function search(query, page) {
     setState({ ...state, status: 'searching' });
-    await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=ar&page=${page}`)
+    await axios.get(`${process.env.REACT_APP_API_URL}/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&language=ar&page=${page}`)
       .then(res => {
         setState({ data: res.data, status: '', errors: [] });
         setSearchPageNum(page)
