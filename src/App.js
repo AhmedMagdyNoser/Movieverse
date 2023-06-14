@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import Header from './Com/Header';
+import Header from './Components/Header';
 import AllMovies from './Pages/AllMovies';
 import SearchMovies from './Pages/SearchMovies';
 import MovieDetails from './Pages/MovieDetails';

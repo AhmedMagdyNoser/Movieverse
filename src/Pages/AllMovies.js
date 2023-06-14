@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import Card from "../Com/MovieCard"
-import { SimpleSpinner } from "../Com/Utils/Loaders"
-import Pagination from "../Com/Utils/Pagination"
+import Card from "../Components/MovieCard"
+import { SimpleSpinner } from "../Components/Utils/Loaders"
+import Pagination from "../Components/Utils/Pagination"
 
 export default function AllMovies({ state, getMovies, homePageNum }) {
 

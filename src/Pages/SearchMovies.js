@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"
-import { SimpleSpinner } from "../Com/Utils/Loaders"
-import Pagination from "../Com/Utils/Pagination"
-import Card from "../Com/MovieCard"
+import { SimpleSpinner } from "../Components/Utils/Loaders"
+import Pagination from "../Components/Utils/Pagination"
+import Card from "../Components/MovieCard"
 
 export default function SearchMovies({ state, search, searchPageNum }) {
 

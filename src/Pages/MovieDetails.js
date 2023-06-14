@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { SimpleSpinner } from "../Com/Utils/Loaders";
+import { SimpleSpinner } from "../Components/Utils/Loaders";
 import axios from 'axios';
 
 export default function MovieDetails() {
