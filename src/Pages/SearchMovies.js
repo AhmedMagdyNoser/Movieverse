@@ -1,0 +1,41 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom"
+import { SimpleSpinner } from "../Com/Utils/Loaders"
+import Pagination from "../Com/Utils/Pagination"
+import Card from "../Com/MovieCard"
+
+export default function SearchMovies({ state, search, searchPageNum }) {
+
+  let params = useParams();
+
+  function paginationSearch(page) {
+    search(params.query, page)
+  }
+
+  // eslint-disable-next-line
+  useEffect(() => { search(params.query, 1) }, []) // first render search
+
+  let results = <>
+    {state.data.results ?
+      <>
+        <h3 className="text-center mb-4">
+          نتائج البحث عن "{params.query}"
+        </h3>
+        <div className="list mb-4">
+          {state.data.results.map(film => <Card key={film.id} film={film} />)}
+        </div>
+        <Pagination
+          getPage={paginationSearch}
+          currentPage={searchPageNum}
+          totalPages={state.data.total_pages}
+        />
+      </>
+      : <h2 className="text-center">لا يوجد أفلام</h2>}
+  </>
+
+  return (
+    <div className="container py-4">
+      {state.status === 'searching' ? <SimpleSpinner title='جارى البحث' /> : results}
+    </div>
+  )
+}

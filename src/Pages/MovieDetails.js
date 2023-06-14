@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { SimpleSpinner } from "./Utils/Loaders";
+import { SimpleSpinner } from "../Com/Utils/Loaders";
 import axios from 'axios';
 
-export default function MoviePage() {
+export default function MovieDetails() {
 
   const params = useParams(); // it's the parameters in the current url '/movie/:id' the only param is the id
 

@@ -1,13 +1,15 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import Header from './components/Header';
-import List from './components/MoviesList';
-import MoviePage from './components/MoviePage';
+import Header from './Com/Header';
+import AllMovies from './Pages/AllMovies';
+import SearchMovies from './Pages/SearchMovies';
+import MovieDetails from './Pages/MovieDetails';
 
 export default function App() {
 
-  let [currentPage, setCurrentPage] = useState(1);
+  let [homePageNum, setHomePageNum] = useState(1);
+  let [searchPageNum, setSearchPageNum] = useState(1);
   let [state, setState] = useState({
     data: [],
     status: '',
@@ -21,7 +23,7 @@ export default function App() {
     await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ar&page=${page}`)
       .then(res => {
         setState({ data: res.data, status: '', errors: [] });
-        setCurrentPage(page);
+        setHomePageNum(page);
       })
       .catch(err => {
         console.log(err);
@@ -29,15 +31,13 @@ export default function App() {
       })
   }
 
-  async function search(query, page, event) {
-    event && event.preventDefault();
-    event && event.target.reset();
+  async function search(query, page) {
     // The maximum number of movies this function returns is 20 movies (1 page)
     setState({ ...state, status: 'searching' });
     await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=ar&page=${page}`)
       .then(res => {
         setState({ data: res.data, status: '', errors: [] });
-        setCurrentPage(page)
+        setSearchPageNum(page)
       })
       .catch(err => {
         console.log(err);
@@ -45,16 +45,14 @@ export default function App() {
       })
   }
 
-  // eslint-disable-next-line
-  useEffect(() => { getMovies(1) }, []);
 
   return (
     <HashRouter>
-      <Header search={search} getMovies={getMovies} />
+      <Header getMovies={getMovies} search={search} />
       <Routes>
-        <Route index element={<List state={state} getMovies={getMovies} currentPage={currentPage} />} />
-        <Route path='search/:query' element={<List state={state} search={search} currentPage={currentPage} />} />
-        <Route path='movie/:id' element={<MoviePage />} />
+        <Route index element={<AllMovies state={state} getMovies={getMovies} homePageNum={homePageNum} />} />
+        <Route path='search/:query' element={<SearchMovies state={state} search={search} searchPageNum={searchPageNum} />} />
+        <Route path='movie/:id' element={<MovieDetails />} />
       </Routes>
     </HashRouter>
   )
