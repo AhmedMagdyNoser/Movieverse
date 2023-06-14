@@ -10,9 +10,10 @@ export default function SearchMovies({ state, search, searchPageNum }) {
   let location = useLocation();
 
   function paginationSearch(page) {
-    search(params.query, page)
+    search(params.query, page);
   }
-
+  
+  // eslint-disable-next-line
   useEffect(() => { search(params.query, 1) }, [location])
 
   let results = <>
