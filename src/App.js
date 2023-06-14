@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import AllMovies from './Pages/AllMovies';
 import SearchMovies from './Pages/SearchMovies';
 import MovieDetails from './Pages/MovieDetails';
+import PageNotFound from './Pages/PageNotFound';
 
 export default function App() {
 
@@ -32,7 +33,6 @@ export default function App() {
   }
 
   async function search(query, page) {
-    // The maximum number of movies this function returns is 20 movies (1 page)
     setState({ ...state, status: 'searching' });
     await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=ar&page=${page}`)
       .then(res => {
@@ -53,6 +53,7 @@ export default function App() {
         <Route index element={<AllMovies state={state} getMovies={getMovies} homePageNum={homePageNum} />} />
         <Route path='search/:query' element={<SearchMovies state={state} search={search} searchPageNum={searchPageNum} />} />
         <Route path='movie/:id' element={<MovieDetails />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </HashRouter>
   )

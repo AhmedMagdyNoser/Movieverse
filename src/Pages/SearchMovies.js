@@ -16,7 +16,7 @@ export default function SearchMovies({ state, search, searchPageNum }) {
   useEffect(() => { search(params.query, 1) }, []) // first render search
 
   let results = <>
-    {state.data.results ?
+    {state.data.results && state.data.results.length > 0 ?
       <>
         <h3 className="text-center mb-4">
           نتائج البحث عن "{params.query}"
