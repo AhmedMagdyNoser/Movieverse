@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { SimpleSpinner } from "../Components/Utils/Loaders"
 import Pagination from "../Components/Utils/Pagination"
 import Card from "../Components/MovieCard"
@@ -7,13 +7,13 @@ import Card from "../Components/MovieCard"
 export default function SearchMovies({ state, search, searchPageNum }) {
 
   let params = useParams();
+  let location = useLocation();
 
   function paginationSearch(page) {
     search(params.query, page)
   }
 
-  // eslint-disable-next-line
-  useEffect(() => { search(params.query, 1) }, []) // first render search
+  useEffect(() => { search(params.query, 1) }, [location])
 
   let results = <>
     {state.data.results && state.data.results.length > 0 ?

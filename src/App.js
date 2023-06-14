@@ -45,7 +45,6 @@ export default function App() {
       })
   }
 
-
   return (
     <HashRouter>
       <Header getMovies={getMovies} search={search} />
