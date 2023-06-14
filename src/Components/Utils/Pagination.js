@@ -58,8 +58,8 @@ export default function Pagination({ getPage, currentPage, totalPages }) {
         : null}
 
 
-      {/* Option for the last page if the current is smaller than 499 */}
-      {currentPage < 499 ?
+      {/* Option for the last page if the current is smaller than totalPages - 1 */}
+      {currentPage < totalPages - 1 ?
         <>
           <li className="page-item disabled">
             <button className="page-link shadow-none"> ... </button>
