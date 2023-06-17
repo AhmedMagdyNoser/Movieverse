@@ -45,13 +45,15 @@ export default function App() {
 
   return (
     <HashRouter>
-      <Header getMovies={getMovies} search={search} />
-      <Routes>
-        <Route index element={<AllMovies state={state} getMovies={getMovies} homePageNum={homePageNum} />} />
-        <Route path='search/:query' element={<SearchMovies state={state} search={search} searchPageNum={searchPageNum} />} />
-        <Route path='movie/:id' element={<MovieDetails />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+      <div style={{ minHeight: '101vh' }}>
+        <Header getMovies={getMovies} search={search} />
+        <Routes>
+          <Route index element={<AllMovies state={state} getMovies={getMovies} homePageNum={homePageNum} />} />
+          <Route path='search/:query' element={<SearchMovies state={state} search={search} searchPageNum={searchPageNum} />} />
+          <Route path='movie/:id' element={<MovieDetails />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </div>
     </HashRouter>
   )
 

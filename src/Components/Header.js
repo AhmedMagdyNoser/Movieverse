@@ -8,8 +8,10 @@ export default function Header({ getMovies, search }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search(inputValue.current.value, 1);
-    navigate(`/search/${inputValue.current.value}`);
+    if (inputValue.current.value) {
+      search(inputValue.current.value, 1);
+      navigate(`/search/${inputValue.current.value}`);
+    }
     event.target.reset();
   }
 
@@ -21,7 +23,7 @@ export default function Header({ getMovies, search }) {
           <h1 onClick={() => getMovies(1)} className="text-white fw-bold fs-3 m-0">قائمة الأفلام</h1>
         </Link>
 
-        <button className="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <button className="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
           <i className="fa-solid fa-bars text-white"></i>
         </button>
 

@@ -20,13 +20,24 @@ export default function Card({ film }) {
               onLoad={removeLoadingAnimation}
             />
           </div>
-          <div className="text-white overlay">
-            <p className="text-center"><b>{film.title}</b></p>
+          <div className="text-white p-3 overlay">
+            <p className="text-center trancate"><b>{film.title}</b></p>
             <p>تاريخ الاصدار : {film.release_date}</p>
             <p>التقييم : {film.vote_average}</p>
             <p>عدد المقيمين : {film.vote_count}</p>
           </div>
         </div>
+        <style>
+          {`
+            .trancate {
+              display: -webkit-box;
+              -webkit-line-clamp: 1; /* number of lines to display */
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          `}
+        </style>
       </Link>
     </FadeIn>
   )

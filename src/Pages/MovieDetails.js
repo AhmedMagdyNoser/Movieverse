@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { SimpleSpinner } from "../Components/Utils/Loaders";
 import axios from 'axios';
 
@@ -54,11 +54,7 @@ export default function MovieDetails() {
                 <h2 className="fw-bold">القصة</h2>
                 <p className="lh-lg">{movieDetails.movie.overview}</p>
               </div>
-              <div className="py-4 d-flex justify-content-center gap-2">
-                <Link to={'/'}>
-                  <button className="btn btn-primary">العودة</button>
-                </Link>
-              </div>
+              <button className="btn btn-primary w-100 my-3" onClick={() => window.history.back()}>العودة</button>
             </div>
             :
             <h2 className="text-center">عفوا الفيلم غير موجود</h2>
