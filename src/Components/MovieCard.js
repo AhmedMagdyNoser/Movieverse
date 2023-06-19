@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom"
 import { FadeIn } from "./Utils/Fade"
 
-export default function Card({ film }) {
+export default function Card({ movie }) {
 
   function removeLoadingAnimation() {
-    document.getElementById(film.id).classList.remove('skeleton');
+    document.getElementById(movie.id).classList.remove('skeleton');
   }
 
   return (
     <FadeIn time='1s'>
-      <Link to={`/movie/${film.id}`}>
+      <Link to={`/movie/${movie.id}`}>
         <div className='rounded overflow-hidden' style={{ position: 'relative', aspectRatio: '2 / 3' }}>
-          <div id={film.id} className="skeleton h-100">
+          <div id={movie.id} className="skeleton h-100">
             <img
-              src={'https://image.tmdb.org/t/p/w500' + film.poster_path}
+              src={'https://image.tmdb.org/t/p/w500' + movie.poster_path}
               style={{ width: '100%' }}
-              alt={film.title}
+              alt={movie.title}
               loading="lazy"
               onLoad={removeLoadingAnimation}
             />
           </div>
           <div className="text-white p-3 overlay">
-            <p className="text-center trancate"><b>{film.title}</b></p>
-            <p>تاريخ الاصدار : {film.release_date}</p>
-            <p>التقييم : {film.vote_average}</p>
-            <p>عدد المقيمين : {film.vote_count}</p>
+            <p className="text-center trancate"><b>{movie.title}</b></p>
+            <p>تاريخ الاصدار : {movie.release_date}</p>
+            <p>التقييم : {movie.vote_average}</p>
+            <p>عدد المقيمين : {movie.vote_count}</p>
           </div>
         </div>
         <style>
