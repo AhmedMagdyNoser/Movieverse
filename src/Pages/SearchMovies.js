@@ -18,6 +18,7 @@ export default function SearchMovies() {
     dispatch(search({ query: params.query, page }))
   }
 
+  // eslint-disable-next-line
   useEffect(() => { dispatchPage(1) }, [location])
 
   let results = <>

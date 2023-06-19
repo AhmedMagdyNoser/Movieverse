@@ -25,6 +25,7 @@ export default function MovieDetails() {
       })
   }
 
+  // eslint-disable-next-line
   useEffect(() => { getMovieDetails(); }, [location]);
 
   return (
