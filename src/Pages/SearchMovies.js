@@ -1,9 +1,9 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom"
 import { SimpleSpinner } from "../Components/Utils/Loaders"
 import Pagination from "../Components/Utils/Pagination"
 import Card from "../Components/MovieCard"
-import { useDispatch, useSelector } from "react-redux";
 import { search } from "../api";
 
 export default function SearchMovies() {
@@ -18,7 +18,6 @@ export default function SearchMovies() {
     dispatch(search({ query: params.query, page }))
   }
 
-  // eslint-disable-next-line
   useEffect(() => { dispatchPage(1) }, [location])
 
   let results = <>

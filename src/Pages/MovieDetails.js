@@ -5,34 +5,32 @@ import axios from 'axios';
 
 export default function MovieDetails() {
 
-  let params = useParams(); // it's the parameters in the current url '/movie/:id' the only param is the id
+  let params = useParams();
   let location = useLocation();
 
   const [movieDetails, setMovieDetails] = useState({
     movie: null,
-    status: '',
-    errors: [],
+    loading: false,
+    error: null,
   });
 
   async function getMovieDetails() {
-    setMovieDetails({ ...movieDetails, status: 'loading' });
+    setMovieDetails({ ...movieDetails, loading: true });
     await axios.get(`${process.env.REACT_APP_API_URL}/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}&language=ar`)
       .then(res => {
-        setMovieDetails({ movie: res.data, status: '', errors: [] });
+        setMovieDetails({ movie: res.data, loading: false, error: null });
       })
-      .catch(err => {
-        console.log(err);
-        setMovieDetails({ movie: null, status: '', errors: err.response.data.errors });
+      .catch(error => {
+        setMovieDetails({ movie: null, loading: false, error: error.response.data });
       })
   }
 
-  // eslint-disable-next-line
   useEffect(() => { getMovieDetails(); }, [location]);
 
   return (
     <div className="container py-4">
       {
-        movieDetails.status === 'loading' ?
+        movieDetails.loading ?
           <SimpleSpinner title="جارى تحميل التفاصيل" />
           : movieDetails.movie ?
             <div>
@@ -56,7 +54,7 @@ export default function MovieDetails() {
               </div>
               <button className="btn btn-primary w-100 my-3" onClick={() => window.history.back()}>العودة</button>
             </div>
-            :
+            : movieDetails.error &&
             <h2 className="text-center">عفوا الفيلم غير موجود</h2>
       }
     </div>

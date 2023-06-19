@@ -1,13 +1,14 @@
 import { useRef } from "react"
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getMovies, search } from "../api";
-import { useDispatch } from "react-redux";
+
 export default function Header() {
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
   let inputValue = useRef(null);
 
-  const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
