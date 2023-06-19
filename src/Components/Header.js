@@ -1,15 +1,18 @@
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom";
-
-export default function Header({ getMovies, search }) {
+import { getMovies, search } from "../api";
+import { useDispatch } from "react-redux";
+export default function Header() {
 
   let navigate = useNavigate();
   let inputValue = useRef(null);
 
+  const dispatch = useDispatch();
+
   function handleSubmit(event) {
     event.preventDefault();
     if (inputValue.current.value) {
-      search(inputValue.current.value, 1);
+      dispatch(search({query: inputValue.current.value, page: 1}))
       navigate(`/search/${inputValue.current.value}`);
     }
     event.target.reset();
@@ -20,7 +23,7 @@ export default function Header({ getMovies, search }) {
       <div className="container" >
 
         <Link to={'/'} className="text-decoration-none">
-          <h1 onClick={() => getMovies(1)} className="text-white fw-bold fs-3 m-0">قائمة الأفلام</h1>
+          <h1 onClick={() => dispatch(getMovies(1))} className="text-white fw-bold fs-3 m-0">قائمة الأفلام</h1>
         </Link>
 
         <button className="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
