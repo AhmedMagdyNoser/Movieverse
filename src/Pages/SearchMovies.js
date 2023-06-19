@@ -3,40 +3,41 @@ import { useLocation, useParams } from "react-router-dom"
 import { SimpleSpinner } from "../Components/Utils/Loaders"
 import Pagination from "../Components/Utils/Pagination"
 import Card from "../Components/MovieCard"
+import { useDispatch, useSelector } from "react-redux";
+import { search } from "../api";
 
-export default function SearchMovies({ state, search, searchPageNum }) {
+export default function SearchMovies() {
 
   let params = useParams();
   let location = useLocation();
 
-  function paginationSearch(page) {
-    search(params.query, page);
+  const dispatch = useDispatch();
+  const movies = useSelector(store => store.movies);
+
+  function dispatchPage(page) {
+    dispatch(search({ query: params.query, page }))
   }
-  
+
   // eslint-disable-next-line
-  useEffect(() => { search(params.query, 1) }, [location])
+  useEffect(() => { dispatchPage(1) }, [location])
 
   let results = <>
-    {state.data.results && state.data.results.length > 0 ?
+    {movies.data.results?.length > 0 ?
       <>
-        <h3 className="text-center mb-4">
-          نتائج البحث عن "{params.query}"
-        </h3>
+        <h3 className="text-center mb-4"> نتائج البحث عن "{params.query}" </h3>
         <div className="list mb-4">
-          {state.data.results.map(film => <Card key={film.id} film={film} />)}
+          {movies.data.results.map(movie => <Card key={movie.id} movie={movie} />)}
         </div>
-        <Pagination
-          getPage={paginationSearch}
-          currentPage={searchPageNum}
-          totalPages={state.data.total_pages}
-        />
+        <Pagination getPage={dispatchPage} currentPage={movies.data.page} totalPages={movies.data.total_pages} />
       </>
-      : <h2 className="text-center">لا يوجد أفلام</h2>}
+      :
+      movies.error && <h2 className="text-center">لا يوجد أفلام</h2>
+    }
   </>
 
   return (
     <div className="container py-4">
-      {state.status === 'searching' ? <SimpleSpinner title='جارى البحث' /> : results}
+      {movies.loading ? <SimpleSpinner title='جارى البحث' /> : results}
     </div>
   )
 }

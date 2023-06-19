@@ -26,7 +26,8 @@ export default function AllMovies() {
         <Pagination getPage={dispatchPage} currentPage={movies.data.page} totalPages={500} />
       </>
       :
-      movies.error && <h2 className="text-center">لا يوجد أفلام</h2>}
+      movies.error && <h2 className="text-center">لا يوجد أفلام</h2>
+    }
   </>
 
   return (
