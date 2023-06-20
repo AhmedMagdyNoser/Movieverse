@@ -14,30 +14,35 @@ export default function SearchMovies() {
   const dispatch = useDispatch();
   const movies = useSelector(store => store.movies);
 
-  function dispatchPage(page) {
+  function dispatchSearch(page) {
     dispatch(search({ query: params.query, page }))
   }
 
   // eslint-disable-next-line
-  useEffect(() => { dispatchPage(1) }, [location])
+  useEffect(() => { dispatchSearch(1) }, [location])
 
-  let results = <>
-    {movies.data.results?.length > 0 ?
-      <>
-        <h3 className="text-center mb-4"> نتائج البحث عن "{params.query}" </h3>
-        <div className="list mb-4">
-          {movies.data.results.map(movie => <Card key={movie.id} movie={movie} />)}
-        </div>
-        <Pagination getPage={dispatchPage} currentPage={movies.data.page} totalPages={movies.data.total_pages} />
-      </>
-      :
-      movies.error && <h2 className="text-center">لا يوجد أفلام</h2>
-    }
-  </>
+  function renderMoviesList() {
+    if (movies.loading) return <SimpleSpinner title='جارى البحث' />
+    if (movies.error) return <h2 className="text-center">خطأ فى التحميل</h2>
+
+    const moviesResults = movies.data.results;
+
+    if (moviesResults && moviesResults.length > 0)
+      return (
+        <>
+          <h3 className="text-center mb-4"> نتائج البحث عن "{params.query}" </h3>
+          <div className="list mb-4"> {moviesResults.map(movie => <Card key={movie.id} movie={movie} />)} </div>
+          <Pagination getPage={dispatchSearch} currentPage={movies.data.page} totalPages={movies.data.total_pages} />
+        </>
+      )
+
+    if (moviesResults && moviesResults.length === 0)
+      return <h2 className="text-center">لا يوجد أفلام</h2>;
+  }
 
   return (
     <div className="container py-4">
-      {movies.loading ? <SimpleSpinner title='جارى البحث' /> : results}
+      {renderMoviesList()}
     </div>
   )
 }

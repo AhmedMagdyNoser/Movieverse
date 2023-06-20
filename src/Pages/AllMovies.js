@@ -14,7 +14,7 @@ export default function AllMovies() {
 
   useEffect(() => { dispatch(getMovies(1)) }, [dispatch]);
 
-  function renderMovies() {
+  function renderMoviesList() {
     if (movies.loading) return <SimpleSpinner title='جارى تحميل الافلام' />
     if (movies.error) return <h2 className="text-center">خطأ فى التحميل</h2>
 
@@ -34,7 +34,7 @@ export default function AllMovies() {
 
   return (
     <div className="container py-4">
-      {renderMovies()}
+      {renderMoviesList()}
     </div>
   )
 }
