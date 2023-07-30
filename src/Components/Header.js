@@ -20,7 +20,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg py-3 bg-dark">
+    <nav className="navbar navbar-expand-lg py-3 bg-dark sticky-top">
       <div className="container" >
 
         <Link to={'/'} className="text-decoration-none">

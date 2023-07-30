@@ -1,0 +1,54 @@
+.landing-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: calc(100vh - 60px); /* 60 for the header */
+  /* background-image: url(../../Imgs/cover1.jpg); IN COMPONENT LOGIC */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  transition: background-image 3.5s;
+  overflow: hidden;
+}
+
+.landing-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0009;
+}
+
+.content {
+  z-index: 1;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 4rem;
+}
+
+.content p {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+  .content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 567px) {
+  .content h1 {
+    font-size: 1.75rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+}

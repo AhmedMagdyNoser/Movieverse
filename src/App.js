@@ -4,6 +4,7 @@ import AllMovies from './Pages/AllMovies';
 import SearchMovies from './Pages/SearchMovies';
 import MovieDetails from './Pages/MovieDetails';
 import PageNotFound from './Pages/PageNotFound';
+import HomePage from './Pages/HomePage';
 
 export default function App() {
 
@@ -12,7 +13,8 @@ export default function App() {
       <div style={{ minHeight: '101vh' }}>
         <Header />
         <Routes>
-          <Route index element={<AllMovies />} />
+          <Route index element={<HomePage />} />
+          {/* <Route index element={<AllMovies />} /> */}
           <Route path='search/:query' element={<SearchMovies />} />
           <Route path='movie/:id' element={<MovieDetails />} />
           <Route path='*' element={<PageNotFound />} />
