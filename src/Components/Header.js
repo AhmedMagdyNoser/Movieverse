@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { getMovies, search } from "../api";
+import { getPopularMovies, search } from "../api";
 
 export default function Header() {
 
@@ -24,7 +24,7 @@ export default function Header() {
       <div className="container" >
 
         <Link to={'/'} className="text-decoration-none">
-          <h1 onClick={() => dispatch(getMovies(1))} className="text-white fw-bold fs-3 m-0">قائمة الأفلام</h1>
+          <h1 onClick={() => dispatch(getPopularMovies(1))} className="text-white fw-bold fs-3 m-0">قائمة الأفلام</h1>
         </Link>
 
         <button className="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">

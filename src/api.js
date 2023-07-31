@@ -1,17 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getMovies = createAsyncThunk("movies/getMovies", async (page) => {
+export const getPopularMovies = createAsyncThunk("movies/getPopularMovies", async (page) => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL}/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=ar&page=${page}`
+    `${process.env.REACT_APP_API_URL}/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=ar`
   );
   return data;
 });
 
-export const getPopularMovies = createAsyncThunk("movies/getPopularMovies", async () => {
-  const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL}/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=ar&sort_by=popularity.desc`
-  );
+export const getTopMovies = createAsyncThunk("movies/getTopMovies", async () => {
+  const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=ar`);
   return data;
 });
 

@@ -13,7 +13,7 @@ export default function App() {
         <Header />
         <Routes>
           <Route index element={<HomePage />} />
-          {/* <Route index element={<AllMovies />} /> */}
+          {/* <Route path="explore/:page" element={<AllMovies />} /> */}
           <Route path="search/:query" element={<SearchMovies />} />
           <Route path="movie/:id" element={<MovieDetails />} />
           <Route path="*" element={<NotFound message="عذرا الصفحة غير موجودة" />} />
