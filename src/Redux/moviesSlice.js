@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMovies, search } from "../api";
+import { getMovies, getPopularMovies, search } from "../api";
 
 const movies = createSlice({
-  name: 'movies',
+  name: "movies",
   initialState: {
     data: [],
     loading: false,
@@ -11,37 +11,60 @@ const movies = createSlice({
   extraReducers: (builder) => {
     builder
 
-      // getMovies
-      .addCase(getMovies.pending, (state, action) => { // loading
+      // ---------- getMovies ----------
+      .addCase(getMovies.pending, (state, action) => {
+        // loading
         state.loading = true;
         state.error = null;
       })
-      .addCase(getMovies.fulfilled, (state, action) => { // success
+      .addCase(getMovies.fulfilled, (state, action) => {
+        // success
         state.data = action.payload;
         state.loading = false;
         state.error = null;
       })
-      .addCase(getMovies.rejected, (state, action) => { // failed
+      .addCase(getMovies.rejected, (state, action) => {
+        // failed
         state.loading = false;
         state.error = action.error;
       })
 
-      // search
-      .addCase(search.pending, (state, action) => { // loading
+      // ---------- getPopularMovies ----------
+      .addCase(getPopularMovies.pending, (state, action) => {
+        // loading
         state.loading = true;
         state.error = null;
       })
-      .addCase(search.fulfilled, (state, action) => { // success
+      .addCase(getPopularMovies.fulfilled, (state, action) => {
+        // success
         state.data = action.payload;
         state.loading = false;
         state.error = null;
       })
-      .addCase(search.rejected, (state, action) => { // failed
+      .addCase(getPopularMovies.rejected, (state, action) => {
+        // failed
         state.loading = false;
         state.error = action.error;
       })
 
-  }
-})
+      // ---------- search ----------
+      .addCase(search.pending, (state, action) => {
+        // loading
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(search.fulfilled, (state, action) => {
+        // success
+        state.data = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(search.rejected, (state, action) => {
+        // failed
+        state.loading = false;
+        state.error = action.error;
+      });
+  },
+});
 
 export default movies.reducer;

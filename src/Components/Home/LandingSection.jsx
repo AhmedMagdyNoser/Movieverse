@@ -17,6 +17,7 @@ export default function LandingSection() {
     return () => {
       clearInterval(intervalId);
     };
+    // eslint-disable-next-line
   }, []);
 
   const backgroundImage = allCovers[coverIndex];
@@ -42,7 +43,7 @@ function LandingLink({ title, path, iconClass }) {
     <Link
       to={path}
       style={{ width: "125px", height: "45px" }}
-      className="text-decoration-none btn btn-danger rounded-2 shadow-sm flex-center gap-2"
+      className="text-decoration-none btn btn-danger rounded shadow-sm flex-center gap-2"
     >
       <i className={iconClass}></i>
       <span>{title}</span>

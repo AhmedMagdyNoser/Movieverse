@@ -31,6 +31,12 @@ body {
   gap: 25px;
 }
 
+.list-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, auto));
+  gap: 18px;
+}
+
 .overlay {
   display: flex;
   align-items: center;
