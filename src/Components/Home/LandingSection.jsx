@@ -39,7 +39,11 @@ export default function LandingSection() {
 
 function LandingLink({ title, path, iconClass }) {
   return (
-    <Link to={path} className="text-decoration-none btn btn-danger rounded-pill shadow px-3 d-flex gap-2 align-items-center">
+    <Link
+      to={path}
+      style={{ width: "125px", height: "45px" }}
+      className="text-decoration-none btn btn-danger rounded-2 shadow-sm flex-center gap-2"
+    >
       <i className={iconClass}></i>
       <span>{title}</span>
     </Link>
