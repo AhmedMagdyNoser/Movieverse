@@ -1,6 +1,7 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./Components/Header";
-import AllMovies from "./Pages/AllMovies";
+// import AllMovies from "./Pages/AllMovies";
 import SearchMovies from "./Pages/SearchMovies";
 import MovieDetails from "./Pages/MovieDetails";
 import NotFound from "./Pages/NotFound";
@@ -11,6 +12,7 @@ export default function App() {
     <HashRouter>
       <div style={{ minHeight: "101vh" }}>
         <Header />
+        <ScrollToTop />
         <Routes>
           <Route index element={<HomePage />} />
           {/* <Route path="explore/:page" element={<AllMovies />} /> */}
@@ -21,4 +23,15 @@ export default function App() {
       </div>
     </HashRouter>
   );
+}
+
+// To scroll to top on routing
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
+
+  return null;
 }
