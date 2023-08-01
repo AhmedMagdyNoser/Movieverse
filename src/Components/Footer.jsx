@@ -10,14 +10,14 @@ export default function Footer() {
               <img src={require("../Imgs/logo.png")} alt="Movieverse" style={{ width: "50px" }} />
               <h3 className="m-0">Movieverse</h3>
             </Link>
-            <p className="text-white-50" style={{ maxWidth: '750px' }}>
+            <p className="text-white-50" style={{ maxWidth: "650px", fontSize: "0.85rem" }}>
               نتيح لك استكشاف الأفلام والعروض الشهيرة بطريقة ممتعة ومثيرة. نفخر بتميزنا في تقديم معلومات شاملة ومحدثة حول الأفلام فقم بإكتشاف
               العالم السحري للسينما والتلفزيون.
             </p>
           </div>
           <div className="col-md-4 mb-3 mb-md-0">
-            <h3>روابط سريعة</h3>
-            <div className="d-flex flex-column gap-2">
+            <h3 className="mb-3">روابط سريعة</h3>
+            <div className="d-flex flex-column gap-2" style={{ fontSize: "0.85rem" }}>
               <Link to="/" className="text-decoration-none">
                 الصفحة الرئيسية
               </Link>
