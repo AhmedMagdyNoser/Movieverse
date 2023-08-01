@@ -6,20 +6,24 @@ import SearchMovies from "./Pages/SearchMovies";
 import MovieDetails from "./Pages/MovieDetails";
 import NotFound from "./Pages/NotFound";
 import HomePage from "./Pages/HomePage";
+import Footer from "./Components/Footer";
 
 export default function App() {
   return (
     <HashRouter>
-      <div style={{ minHeight: "101vh" }}>
+      <div style={{ minHeight: "101vh" }} className="d-flex flex-column">
         <Header />
         <ScrollToTop />
-        <Routes>
-          <Route index element={<HomePage />} />
-          {/* <Route path="explore/:page" element={<AllMovies />} /> */}
-          <Route path="search/:query" element={<SearchMovies />} />
-          <Route path="movie/:id" element={<MovieDetails />} />
-          <Route path="*" element={<NotFound message="عذرا الصفحة غير موجودة" />} />
-        </Routes>
+        <div className="flex-grow-1">
+          <Routes>
+            <Route index element={<HomePage />} />
+            {/* <Route path="explore/:page" element={<AllMovies />} /> */}
+            <Route path="search/:query" element={<SearchMovies />} />
+            <Route path="movie/:id" element={<MovieDetails />} />
+            <Route path="*" element={<NotFound message="الصفحة غير موجودة" />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </HashRouter>
   );

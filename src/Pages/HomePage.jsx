@@ -3,6 +3,7 @@ import { getPopularMovies, getTopMovies } from "../api";
 import LandingSection from "../Components/Home/LandingSection";
 import MoviesSection from "../Components/Home/MoviesSection";
 import SearchSection from "../Components/Home/SearchSection";
+import ExploreMore from "../Components/Home/ExploreMore";
 
 export default function HomePage() {
   const popularMovies = useSelector((store) => store.popularMoviesSlice);
@@ -14,6 +15,7 @@ export default function HomePage() {
       <MoviesSection moviesStore={popularMovies} getRequiredMovies={getPopularMovies} title="الأكثر شيوعاً" />
       <SearchSection />
       <MoviesSection moviesStore={topMovies} getRequiredMovies={getTopMovies} title="الأعلى تقييماً" />
+      <ExploreMore />
     </div>
   );
 }

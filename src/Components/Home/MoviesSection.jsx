@@ -21,7 +21,7 @@ export default function MoviesSection({ moviesStore, getRequiredMovies, title })
     if (moviesResults && moviesResults.length > 0)
       return (
         <div className="list-sm">
-          {moviesResults.slice(0, 10).map((movie) => (
+          {moviesResults.slice(0, 20).map((movie) => (
             <Card key={movie.id} movie={movie} />
           ))}
         </div>
