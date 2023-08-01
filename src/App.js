@@ -7,6 +7,7 @@ import MovieDetails from "./Pages/MovieDetails";
 import NotFound from "./Pages/NotFound";
 import HomePage from "./Pages/HomePage";
 import Footer from "./Components/Footer";
+import SearchPage from "./Pages/SearchPage";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <div className="flex-grow-1">
           <Routes>
             <Route index element={<HomePage />} />
+            <Route path="search" element={<SearchPage />} />
             {/* <Route path="explore/:page" element={<AllMovies />} /> */}
             <Route path="search/:query" element={<SearchMovies />} />
             <Route path="movie/:id" element={<MovieDetails />} />

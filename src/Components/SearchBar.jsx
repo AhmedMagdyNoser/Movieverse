@@ -2,11 +2,16 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { search } from "../api";
+import { useEffect } from "react";
 
-export default function SearchBar() {
+export default function SearchBar({ focus }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    focus && inputRef.current.focus()
+  }, [inputRef.current])
 
   function handleSubmit(event) {
     event.preventDefault();
