@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import cover1 from "../../Imgs/cover1.jpg";
 import cover2 from "../../Imgs/cover2.jpg";
 import cover3 from "../../Imgs/cover3.jpg";
-import "./LandingSection.css";
+import "./homeStyles.css";
 
 export default function LandingSection() {
   const [coverIndex, setCoverIndex] = useState(0);

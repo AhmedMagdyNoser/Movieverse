@@ -12,7 +12,7 @@ export default function SearchMovies() {
   let location = useLocation();
 
   const dispatch = useDispatch();
-  const movies = useSelector(store => store.movies);
+  const movies = useSelector(store => store.searchSlice);
 
   function dispatchSearch(page) {
     dispatch(search({ query: params.query, page }))

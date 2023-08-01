@@ -21,34 +21,34 @@
   background-color: #0009;
 }
 
-.content {
+.landing-section .content {
   z-index: 1;
   line-height: 1.5;
   text-align: center;
 }
 
-.content h1 {
+.landing-section .content h1 {
   font-size: 4rem;
 }
 
-.content p {
+.landing-section .content p {
   font-size: 2rem;
 }
 
 @media (max-width: 768px) {
-  .content h1 {
+  .landing-section .content h1 {
     font-size: 2.5rem;
   }
-  .content p {
+  .landing-section .content p {
     font-size: 1.5rem;
   }
 }
 
 @media (max-width: 567px) {
-  .content h1 {
+  .landing-section .content h1 {
     font-size: 1.75rem;
   }
-  .content p {
+  .landing-section .content p {
     font-size: 1rem;
   }
 }

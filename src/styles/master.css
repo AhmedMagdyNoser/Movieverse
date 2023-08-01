@@ -82,3 +82,14 @@ body {
     background: #eee;
   }
 }
+
+/* =========================== Components =========================== */
+.search-bar {
+  width: 75%;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;
+  }
+}

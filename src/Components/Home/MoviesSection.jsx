@@ -1,21 +1,22 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SimpleSpinner } from "../Utils/Loaders";
 import NotFound from "../../Pages/NotFound";
 import Card from "../MovieCard";
 
-export default function MoviesSection({ movies, getRequiredMovies, title }) {
+export default function MoviesSection({ moviesStore, getRequiredMovies, title }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getRequiredMovies());
+    // eslint-disable-next-line
   }, [dispatch]);
 
   function renderMoviesList() {
-    if (movies.loading) return <SimpleSpinner title="جارى تحميل الافلام" />;
-    if (movies.error) return <NotFound message="خطأ فى التحميل" />;
+    if (moviesStore.loading) return <SimpleSpinner title="جارى تحميل الافلام" />;
+    if (moviesStore.error) return <NotFound message="خطأ فى التحميل" />;
 
-    const moviesResults = movies.data.results;
+    const moviesResults = moviesStore.data.results;
 
     if (moviesResults && moviesResults.length > 0)
       return (

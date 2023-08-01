@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { getPopularMovies, getTopMovies } from "../api";
 import LandingSection from "../Components/Home/LandingSection";
 import MoviesSection from "../Components/Home/MoviesSection";
+import SearchSection from "../Components/Home/SearchSection";
 
 export default function HomePage() {
   const popularMovies = useSelector((store) => store.popularMoviesSlice);
@@ -10,8 +11,9 @@ export default function HomePage() {
   return (
     <div>
       <LandingSection />
-      <MoviesSection movies={popularMovies} getRequiredMovies={getPopularMovies} title="الاكثر شيوعا" />
-      <MoviesSection movies={topMovies} getRequiredMovies={getTopMovies} title="الاعلى تقييما" />
+      <MoviesSection moviesStore={popularMovies} getRequiredMovies={getPopularMovies} title="الأكثر شيوعاً" />
+      <SearchSection />
+      <MoviesSection moviesStore={topMovies} getRequiredMovies={getTopMovies} title="الأعلى تقييماً" />
     </div>
   );
 }

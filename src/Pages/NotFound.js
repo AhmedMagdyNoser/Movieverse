@@ -1,4 +1,4 @@
-import error from "../Imgs/404 Error.svg";
+import error from "../Imgs/error.svg";
 
 export default function NotFound({ message }) {
   return (
