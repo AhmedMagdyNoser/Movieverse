@@ -17,8 +17,7 @@ export default function SearchBar({ focus }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (inputRef.current.value) {
-      dispatch(search({ query: inputRef.current.value, page: 1 }));
-      navigate(`/search/${inputRef.current.value}`);
+      navigate(`/search/${inputRef.current.value}/1`);
     }
     event.target.reset();
   }

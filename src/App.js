@@ -20,7 +20,7 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="explore/:page" element={<ExplorePage />} />
-            <Route path="search/:query" element={<SearchMovies />} />
+            <Route path="search/:query/:page" element={<SearchMovies />} />
             <Route path="movie/:id" element={<MovieDetails />} />
             <Route path="*" element={<NotFound message="الصفحة غير موجودة" />} />
           </Routes>
