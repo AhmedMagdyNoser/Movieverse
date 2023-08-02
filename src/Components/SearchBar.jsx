@@ -11,6 +11,7 @@ export default function SearchBar({ focus }) {
 
   useEffect(() => {
     focus && inputRef.current.focus()
+    // eslint-disable-next-line
   }, [inputRef.current])
 
   function handleSubmit(event) {
