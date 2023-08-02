@@ -19,7 +19,7 @@ export default function SearchPage() {
             top: 50%;
             left: 35%;
             transform: translateY(-50%);
-            opacity: 0.35;
+            opacity: 0.25;
           }
         `}
       </style>

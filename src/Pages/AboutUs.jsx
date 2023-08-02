@@ -7,10 +7,10 @@ function AboutUs() {
       <div className="container">
         <h2 className="my-5">من نكون؟</h2>
         <div className="row align-items-center">
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <img src={require("../Imgs/camera.jpg")} alt="Movieverse" className="img-fluid rounded my-3" />
           </div>
-          <div className="col-md-6">
+          <div className="col-lg-6">
             <p className="text-secondary fw-bold">
               مرحبًا بك في <span className="text-primary">Movieverse</span>
             </p>
