@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./Components/Header";
-// import AllMovies from "./Pages/AllMovies";
+import ExplorePage from "./Pages/ExplorePage";
 import SearchMovies from "./Pages/SearchMovies";
 import MovieDetails from "./Pages/MovieDetails";
 import NotFound from "./Pages/NotFound";
@@ -19,7 +19,7 @@ export default function App() {
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
-            {/* <Route path="explore/:page" element={<AllMovies />} /> */}
+            <Route path="explore/:page" element={<ExplorePage />} />
             <Route path="search/:query" element={<SearchMovies />} />
             <Route path="movie/:id" element={<MovieDetails />} />
             <Route path="*" element={<NotFound message="الصفحة غير موجودة" />} />

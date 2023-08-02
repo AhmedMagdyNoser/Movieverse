@@ -12,7 +12,7 @@ export default function Header() {
           <Link to="/search" title="البحث" className="text-muted bg-dark-hover rounded p-2">
             <i className="fa-solid fa-search fs-4"></i>
           </Link>
-          <Link to="/explore" title="الأكثر شيوعا" className="text-muted bg-dark-hover rounded p-2">
+          <Link to="/explore/1" title="الأكثر شيوعا" className="text-muted bg-dark-hover rounded p-2">
             <i className="fa-solid fa-fire fs-4"></i>
           </Link>
         </div>

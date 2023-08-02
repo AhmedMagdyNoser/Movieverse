@@ -30,7 +30,7 @@ export default function LandingSection() {
           <p>مكتبة كبيرة من أحدث الأفلام والأعمال التلفزيونية الأكثر شهرة</p>
         </div>
         <div className="mt-4 d-flex gap-2 justify-content-center">
-          <LandingLink title="اكتشف" path="/explore" iconClass="fa-solid fa-compass" />
+          <LandingLink title="اكتشف" path="/explore/1" iconClass="fa-solid fa-compass" />
           <LandingLink title="ابحث" path="/search" iconClass="fa-solid fa-search" />
         </div>
       </div>
