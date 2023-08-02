@@ -27,7 +27,7 @@ export default function Footer() {
               <Link to="/search" className="text-decoration-none">
                 ابحث عن فيلم
               </Link>
-              <Link to="/about-us" className="text-decoration-none">
+              <Link to="/about" className="text-decoration-none">
                 من نكون؟
               </Link>
             </div>

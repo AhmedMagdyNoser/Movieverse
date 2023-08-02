@@ -9,7 +9,7 @@ import NotFound from "./NotFound";
 
 const MAX_PAGES = 500;
 
-export default function AllMovies() {
+export default function ExplorePage() {
   let params = useParams();
   let location = useLocation();
   let navigate = useNavigate();
