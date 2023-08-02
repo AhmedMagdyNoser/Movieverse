@@ -6,6 +6,7 @@ import Pagination from "../Components/Utils/Pagination";
 import Card from "../Components/MovieCard";
 import { search } from "../api";
 import NotFound from "./NotFound";
+import SearchBar from "../Components/SearchBar";
 
 export default function SearchMovies() {
   let params = useParams();
@@ -15,9 +16,9 @@ export default function SearchMovies() {
   const dispatch = useDispatch();
   const movies = useSelector((store) => store.searchSlice);
 
-  // eslint-disable-next-line
   useEffect(() => {
     dispatch(search({ query: params.query, page: params.page }));
+    // eslint-disable-next-line
   }, [location]);
 
   function renderMoviesList() {
@@ -29,7 +30,8 @@ export default function SearchMovies() {
     if (moviesResults && moviesResults.length > 0)
       return (
         <>
-          <h3 className="text-center mb-4"> نتائج البحث عن "{params.query}" </h3>
+          <SearchBar lg defaultValue={params.query}/>
+          <h3 className="my-4"> نتائج البحث عن "{params.query}" </h3>
           <div className="list mb-4">
             {moviesResults.map((movie) => (
               <Card key={movie.id} movie={movie} />

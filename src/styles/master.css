@@ -91,12 +91,12 @@ body {
 }
 
 /* =========================== Components =========================== */
-.search-bar {
+.semi-bar {
   width: 75%;
 }
 
 @media (max-width: 768px) {
-  .search-bar {
+  .semi-bar {
     width: 100%;
   }
 }
