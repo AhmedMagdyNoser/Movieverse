@@ -13,9 +13,9 @@ import NotFound from "./Pages/NotFound";
 export default function App() {
   return (
     <HashRouter>
-      <div style={{ minHeight: "101vh" }} className="d-flex flex-column">
-        <Header />
-        <ScrollToTop />
+      <Header />
+      <ScrollToTop />
+      <div style={{ minHeight: "100vh" }} className="d-flex flex-column">
         <div className="flex-grow-1">
           <Routes>
             <Route index element={<HomePage />} />
@@ -27,8 +27,8 @@ export default function App() {
             <Route path="*" element={<NotFound message="الصفحة غير موجودة" />} />
           </Routes>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </HashRouter>
   );
 }
