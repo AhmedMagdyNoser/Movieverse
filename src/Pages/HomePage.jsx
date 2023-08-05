@@ -12,9 +12,9 @@ export default function HomePage() {
   return (
     <div>
       <LandingSection />
-      <MoviesSection moviesStore={popularMovies} getRequiredMovies={getPopularMovies} title="الأكثر شيوعاً" />
+      <MoviesSection moviesStore={popularMovies} getRequiredMovies={getPopularMovies} title="الأكثر شيوعاً" iconClass="fa-solid fa-fire" />
       <SearchSection />
-      <MoviesSection moviesStore={topMovies} getRequiredMovies={getTopMovies} title="الأعلى تقييماً" />
+      <MoviesSection moviesStore={topMovies} getRequiredMovies={getTopMovies} title="الأعلى تقييماً" iconClass="fa-solid fa-star" />
       <ExploreMore />
     </div>
   );

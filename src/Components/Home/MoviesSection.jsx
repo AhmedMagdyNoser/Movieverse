@@ -4,7 +4,7 @@ import { SimpleSpinner } from "../Utils/Loaders";
 import NotFound from "../../Pages/NotFound";
 import Card from "../MovieCard";
 
-export default function MoviesSection({ moviesStore, getRequiredMovies, title }) {
+export default function MoviesSection({ moviesStore, getRequiredMovies, title, iconClass }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +31,10 @@ export default function MoviesSection({ moviesStore, getRequiredMovies, title })
   }
   return (
     <section className="container py-5">
-      <h2 className="mb-3">{title}</h2>
+      <h2 className="mb-3">
+        <i className={iconClass + " ms-2"} style={{ color: "#f5c530" }}></i>
+        {title}
+      </h2>
       {renderMoviesList()}
     </section>
   );
