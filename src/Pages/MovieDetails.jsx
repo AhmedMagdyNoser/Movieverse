@@ -74,6 +74,7 @@ export default function MovieDetails() {
             {`
             .movie-poster {
               min-width: 350px;
+              width: 350px;
             }
             @media (max-width: 767px) {
               .movie-poster {
