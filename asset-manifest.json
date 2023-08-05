@@ -1,21 +1,35 @@
 {
   "files": {
-    "main.css": "/Movieverse/static/css/main.7106625b.css",
-    "main.js": "/Movieverse/static/js/main.a261b7bf.js",
+    "main.css": "/Movieverse/static/css/main.0355c87c.css",
+    "main.js": "/Movieverse/static/js/main.9e07a342.js",
     "static/media/fa-solid-900.ttf": "/Movieverse/static/media/fa-solid-900.e615bbcb258550973c16.ttf",
     "static/media/fa-brands-400.ttf": "/Movieverse/static/media/fa-brands-400.b823fc0dbb5a5f0c21bb.ttf",
+    "static/media/Almarai-ExtraBold.ttf": "/Movieverse/static/media/Almarai-ExtraBold.47d78d91a100ffc16d36.ttf",
     "static/media/fa-solid-900.woff2": "/Movieverse/static/media/fa-solid-900.59edf72a325ac2048d60.woff2",
+    "static/media/Almarai-Bold.ttf": "/Movieverse/static/media/Almarai-Bold.6950c5a6d2dcd9e29b5d.ttf",
+    "static/media/Almarai-Regular.ttf": "/Movieverse/static/media/Almarai-Regular.4d8fe12612ad34e16602.ttf",
+    "static/media/Almarai-Light.ttf": "/Movieverse/static/media/Almarai-Light.e91bfa6b2938b4255992.ttf",
+    "static/media/cover3.jpg": "/Movieverse/static/media/cover3.1f8d0f978f179ad711b7.jpg",
+    "static/media/search.jpg": "/Movieverse/static/media/search.bf37ca2f52e4acac17ab.jpg",
+    "static/media/cover2.jpg": "/Movieverse/static/media/cover2.33546a887c9ee7fbb3bc.jpg",
     "static/media/fa-brands-400.woff2": "/Movieverse/static/media/fa-brands-400.ebb7a127d2d8ee6f1832.woff2",
+    "static/media/cover1.jpg": "/Movieverse/static/media/cover1.dee8bf0951156fef815a.jpg",
+    "static/media/camera.jpg": "/Movieverse/static/media/camera.c58ffe639937d4e05253.jpg",
     "static/media/fa-regular-400.ttf": "/Movieverse/static/media/fa-regular-400.0d03b1bbd1d62c1e1284.ttf",
+    "static/media/film.svg": "/Movieverse/static/media/film.cf59ab84a20ab56bd7a83d8f5a55382e.svg",
+    "static/media/error.svg": "/Movieverse/static/media/error.b9f8310002028975aa71ffedb0264147.svg",
+    "static/media/search.svg": "/Movieverse/static/media/search.e3da614fc287b54d1050b52e086a399c.svg",
     "static/media/fa-regular-400.woff2": "/Movieverse/static/media/fa-regular-400.0caf4c6cf244a90efcc5.woff2",
+    "static/media/contact.svg": "/Movieverse/static/media/contact.11d2afca8c56e4475bd926e81a24b575.svg",
+    "static/media/logo.png": "/Movieverse/static/media/logo.6f989725e64421628d14.png",
     "static/media/fa-v4compatibility.ttf": "/Movieverse/static/media/fa-v4compatibility.4baccb548138840fa33a.ttf",
     "static/media/fa-v4compatibility.woff2": "/Movieverse/static/media/fa-v4compatibility.afac89562a5301459069.woff2",
     "index.html": "/Movieverse/index.html",
-    "main.7106625b.css.map": "/Movieverse/static/css/main.7106625b.css.map",
-    "main.a261b7bf.js.map": "/Movieverse/static/js/main.a261b7bf.js.map"
+    "main.0355c87c.css.map": "/Movieverse/static/css/main.0355c87c.css.map",
+    "main.9e07a342.js.map": "/Movieverse/static/js/main.9e07a342.js.map"
   },
   "entrypoints": [
-    "static/css/main.7106625b.css",
-    "static/js/main.a261b7bf.js"
+    "static/css/main.0355c87c.css",
+    "static/js/main.9e07a342.js"
   ]
 }
