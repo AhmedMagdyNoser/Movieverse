@@ -3,13 +3,17 @@ import axios from "axios";
 
 export const getPopularMovies = createAsyncThunk("movies/getPopularMovies", async (page) => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL}/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=ar`
+    `${process.env.REACT_APP_API_URL}/3/movie/popular?api_key=${
+      process.env.REACT_APP_API_KEY
+    }&page=${page || 1}&language=ar`
   );
   return data;
 });
 
 export const getTopMovies = createAsyncThunk("movies/getTopMovies", async () => {
-  const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=ar`);
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_API_URL}/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=ar`
+  );
   return data;
 });
 

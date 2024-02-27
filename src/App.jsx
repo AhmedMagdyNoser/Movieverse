@@ -38,7 +38,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scroll(0, 0);
+    window.scroll({ top: 0, behavior: "instant" });
   }, [pathname]);
 
   return null;
